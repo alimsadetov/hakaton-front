@@ -1,8 +1,8 @@
 <template>
-  <div class="title">Категории</div>
+  <div class="title">Казуальные</div>
 <div class="container" >
-  <div class="category" v-for="i in categories" :key="i">
-  <img  :src="require(`@/${i.image}`)" @click="goToGames(i.name)"/>
+  <div class="category" v-for="i in games" :key="i">
+  <img  :src="require(`@/${i.image}`)" />
   <div class="name">{{i.name}}</div>
   </div>
 </div>
@@ -13,10 +13,11 @@ export default {
   name: 'Categories',
   data(){
     return {
-      categories: [
+      games: [
         {
-          name: "Казуальные",
-          image: "assets/casualcategory.jpg"
+          name: "Plants vs Zombies",
+          image: "assets/plantsvszombies.jpg",
+          exe: "plantsvszombies.exe"
         },
         {
           name: "Аркада",
@@ -39,14 +40,6 @@ export default {
           image: "assets/strategiescategory.jpg"
         },
       ]
-    }
-  },
-  methods: {
-    goToGames(categoryName){
-      console.log(categoryName)
-      if (categoryName === "Казуальные"){
-        this.$route.push("/casual")
-      }
     }
   }
 }
